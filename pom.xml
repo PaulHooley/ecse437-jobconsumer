@@ -1,0 +1,42 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    
+    <groupId>ca.mcgill.ecse437</groupId>
+    <artifactId>job-consumer</artifactId>
+    <version>1</version>
+    <!-- Properties section is to specify to what mvn compiler we are using, also contains variables for easier updating -->
+    <properties>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <log4jVersion>2.13.3</log4jVersion>
+        <execPluginVersion>1.4.0</execPluginVersion>
+    </properties>
+    <!-- Importing the Log4j artifact allowing it to be used throughout the project -->
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4jVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4jVersion}</version>
+        </dependency>
+    </dependencies>
+    <!-- Specify all plugins to be executed during the buld phase -->
+    <build>
+        <plugins>
+          <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>exec-maven-plugin</artifactId>
+              <version>${execPluginVersion}</version>
+              <!-- Point to the main class -->
+              <configuration> 
+                <mainClass>ca.mcgill.ecse437.lab2.MainApp</mainClass>
+              </configuration>
+          </plugin>
+        </plugins>
+    </build>
+</project>
